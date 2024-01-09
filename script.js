@@ -43,6 +43,19 @@ function Cell() {
     return {addMarker, getValue};
 }
 
+function checkWinner(gameBoard){
+    const rows = gameBoard.getBoard().map((row) => row.map((cell) => cell.getValue()));
+    const columns = gameBoard.getBoard().map((column) => column.map((cell) => cell.getValue()));
+
+    console.log(rows.slice(0,1));
+    console.log(columns);
+    
+
+
+    
+}
+
+
 function gameController( 
     playerOneName = "Player One",
     playerTwoName = "Player Two"
@@ -77,6 +90,7 @@ function gameController(
         console.log(`Dropping ${getActivePlayer().name}'s token into place...`);
         board.placeMarker(row,column,getActivePlayer().token);
 
+        checkWinner(board);
         switchPlayerTurn();
         printNewRound();
     };
