@@ -5,9 +5,9 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     border: 1px solid black;
-    gap: 2px;
+    gap: 4px;
     padding: 2px;
-    background-color: yellow;
+    background-color: rgb(19, 92, 39);
   }
   
   .cell {
@@ -16,7 +16,7 @@
     align-items: center;
     text-align: center;
     font-size: 2rem;
-    border: 1px solid grey;
-    background: lightyellow;
+    border: 1px solid rgb(46, 46, 46);
+    background: rgb(22, 161, 55);
     cursor: pointer;
   }
