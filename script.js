@@ -144,12 +144,10 @@ function gameController(
             result.innerHTML = playerOneName + " " + playerOneScore + " - " + playerTwoScore + " " + playerTwoName;
             resultsDiv.appendChild(result);
             console.log(`${getActivePlayer().name} Wins!`);
-            turnCount = 0;
             resetGame();
             console.log("New Game Beginning!");
         }
         else if(turnCount > 8){
-            turnCount = 0;
             console.log("It's a Draw!");
             resetGame();
         }
@@ -159,19 +157,28 @@ function gameController(
     };
 
     const resetGame = () => {
+        turnCount = 0;
         board.resetBoard();
     }
+
 
     printNewRound();
 
 
-    return {playRound, getActivePlayer, getBoard: board.getBoard};
+    return {playRound, getActivePlayer, getBoard: board.getBoard, resetGame};
 }
 
 function ScreenController(playerOneName, playerTwoName) {
     const game = gameController(playerOneName,playerTwoName);
     const playerTurnDiv = document.querySelector('.turn');
     const boardDiv = document.querySelector('.board');
+
+    const resetBtn = document.querySelector('.reset');
+
+    resetBtn.addEventListener("click", () => {
+        game.resetGame();
+        updateScreen();
+    })
   
     const updateScreen = () => {
         // clear the board
@@ -227,6 +234,7 @@ function ScreenController(playerOneName, playerTwoName) {
   }
 
   const form = document.getElementById("playerForm");
+  const resetBtn = document.querySelector(".reset");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
