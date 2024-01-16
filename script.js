@@ -168,8 +168,8 @@ function gameController(
     return {playRound, getActivePlayer, getBoard: board.getBoard};
 }
 
-function ScreenController() {
-    const game = gameController("Riley","Elke");
+function ScreenController(playerOneName, playerTwoName) {
+    const game = gameController(playerOneName,playerTwoName);
     const playerTurnDiv = document.querySelector('.turn');
     const boardDiv = document.querySelector('.board');
   
@@ -225,8 +225,37 @@ function ScreenController() {
   
     // We don't need to return anything from this module because everything is encapsulated inside this screen controller.
   }
+
+  const form = document.getElementById("playerForm");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let playerOneName = document.getElementById("playerOneName").value;
+    let playerTwoName = document.getElementById("playerTwoName").value;
   
-  ScreenController();
+    if (playerOneName == "" || playerTwoName == "") {
+      alert("Ensure you input a value in both fields!");
+    } else {
+    
+      form.reset();
+      startUp(playerOneName, playerTwoName)
+        
+    }
+  });
+  
+  function startUp(playerOneName, playerTwoName){
+
+    const popup = document.querySelector(".popup");
+    const main = document.querySelector(".main");
+    popup.remove();
+    main.style.visibility = "visible";
+    ScreenController(playerOneName, playerTwoName);
+
+  }
+
+
+
 
 
 

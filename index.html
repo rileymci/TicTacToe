@@ -6,26 +6,44 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
-<section class="navbar">
-    <div class="box">
-        <h1 class="logo">Tic Tac Toe</h1>
-    </div>
-    <div class="box">
-        <h1 class="turn"></h1>
-    </div>
-    <div class="box">
-        <button class="reset">Reset</button>
-    </div>
-    
-</section>
 <body>
 
+    <div class="popup">
+        <h1>Tic Tac Toe</h1>
+        <form action="" id="playerForm" class="form">
+        <div class="formcontainer">
+            <label for="playerOneName">Player One:</label><br>
+            <input type="text" id="playerOneName" name="playerOneName"><br>
+            <label for="playerTwoName">Player Two:</label><br>
+            <input type="text" id="playerTwoName" name="playerTwoName"><br>
+
+            <div class="submit">
+                <button>Start Game</button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <div class="main">
+    <nav class="navbar">
+        <div class="box">
+            <h1 class="logo">Tic Tac Toe</h1>
+        </div>
+        <div class="box">
+            <h1 class="turn"></h1>
+        </div>
+        <div class="box">
+            <button class="reset">Reset</button>
+        </div>
+        
+    </nav>
     <div class="container">
         <div class="board"></div>
     </div>
     <div class="results">
         <h1>Score</h1>
     </div>
+</div>
 </body>
 
 
