@@ -1,13 +1,46 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(19, 41, 24);
+  color: rgb(226, 226, 226);
+  text-shadow: 4px 4px 4px #000000;
+
+}
+
+
+.navbar{
+  display: flex;
+  padding-top: 10px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.reset {
+  padding: 10px 10px 10px 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .board {
+    margin-top: 100px;
     display: grid;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    border: 1px solid black;
-    gap: 4px;
-    padding: 2px;
-    background-color: rgb(19, 92, 39);
+    gap: 20px;
+    padding: 10px;
   }
   
   .cell {
@@ -15,8 +48,27 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 2rem;
-    border: 1px solid rgb(46, 46, 46);
-    background: rgb(22, 161, 55);
+    font-size: 4rem;
+    border: 2px solid rgb(196, 196, 196);
+    border-radius: 6px;
+    background: rgb(24, 77, 36);
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486), 0 6px 20px 0 rgba(0, 0, 0, 0.699);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 0 black,
+    0 -2px black,
+    -2px 0 black,
+    0 2px black;
+    color: rgb(228, 129, 59);
+  }
+
+.cell:hover {
+  background: rgb(30, 95, 45);
+}
+
+  .results {
+    display: inline;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }

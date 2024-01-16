@@ -131,10 +131,8 @@ function gameController(
 
     const playRound = (row, column) => {
         turnCount++;
-        console.log(`Dropping ${getActivePlayer().name}'s token into place...`);
         board.placeMarker(row,column,getActivePlayer().token);
-
-        
+        console.log(`Dropping ${getActivePlayer().name}'s token into place...`);
 
         if(checkWinner(board)){
             if(getActivePlayer() === players[0]){
@@ -198,6 +196,12 @@ function ScreenController() {
             cellButton.dataset.row = rindex; 
             cellButton.dataset.column = cindex;
             cellButton.textContent = cell.getValue();
+            if(cell.getValue() === "X"){
+                cellButton.style.color = "rgb(2, 243, 252)";
+            }
+            else{
+                cellButton.style.color = "rgb(228, 129, 59)";
+            }
             boardDiv.appendChild(cellButton);
             })
         })
@@ -209,7 +213,8 @@ function ScreenController() {
       const selectedColumn = e.target.dataset.column;
       // Make sure I've clicked a column and not the gaps in between
       if (!selectedRow) return;
-      
+        
+      if(game.getBoard()[selectedRow][selectedColumn].getValue() !== "") return;
       game.playRound(selectedRow,selectedColumn);
       updateScreen();
     }
